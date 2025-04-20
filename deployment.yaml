@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: devops-sample
-          image: spring.io/devops-sample
+          image: devops-sample
           env:
             - name: PORT
               value: "8080"
