@@ -24,7 +24,7 @@ spec:
     spec:
       containers:
         - name: devops-sample
-          image: devops-sample:0.0.1-SNAPSHOT
+          image: devops-sample:0.0.2-SNAPSHOT
           readinessProbe:
             httpGet:
               path: /v1/api/hello
