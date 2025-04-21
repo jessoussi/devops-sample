@@ -6,10 +6,17 @@ metadata:
   labels:
     app: devops-sample
 spec:
-  replicas: 1
+  replicas: 3
+  revisionHistoryLimit: 5
   selector:
     matchLabels:
       app: devops-sample
+  strategy:
+    rollingUpdate:
+      maxSurge: 1 # as an absolute number of replicas
+      maxUnavailable: 33% # as % of replicas
+    type: RollingUpdate
+  minReadySeconds: 5 # Using minReadySeconds to add a readiness buffer.
   template:
     metadata:
       labels:
@@ -18,6 +25,20 @@ spec:
       containers:
         - name: devops-sample
           image: devops-sample:0.0.1-SNAPSHOT
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 8080
+            initialDelaySeconds: 10
+            periodSeconds: 30
+            failureThreshold: 2
+          livenessProbe:
+              httpGet:
+                path: / # Default path; adjust as necessary for your application's health check.
+                port: 8080
+              initialDelaySeconds: 15
+              failureThreshold: 2
+              periodSeconds: 45
           env:
             - name: PORT
               value: "8080"
