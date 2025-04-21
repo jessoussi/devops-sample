@@ -27,14 +27,14 @@ spec:
           image: devops-sample:0.0.1-SNAPSHOT
           readinessProbe:
             httpGet:
-              path: /
+              path: /v1/api/hello
               port: 8080
             initialDelaySeconds: 10
             periodSeconds: 30
             failureThreshold: 2
           livenessProbe:
               httpGet:
-                path: / # Default path; adjust as necessary for your application's health check.
+                path: /v1/api/hello # Default path; adjust as necessary for your application's health check.
                 port: 8080
               initialDelaySeconds: 15
               failureThreshold: 2
