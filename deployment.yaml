@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: devops-sample
-          image: devops-sample
+          image: devops-sample:0.0.1-SNAPSHOT
           env:
             - name: PORT
               value: "8080"
