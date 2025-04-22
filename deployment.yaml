@@ -24,17 +24,17 @@ spec:
     spec:
       containers:
         - name: devops-sample
-          image: devops-sample:0.0.2-SNAPSHOT
+          image: devops-sample:0.0.3-SNAPSHOT
           readinessProbe:
             httpGet:
-              path: /v1/api/hello
+              path: /actuator/health/readiness
               port: 8080
             initialDelaySeconds: 10
             periodSeconds: 30
             failureThreshold: 2
           livenessProbe:
               httpGet:
-                path: /v1/api/hello # Default path; adjust as necessary for your application's health check.
+                path: /actuator/health/liveness # Default path; adjust as necessary for your application's health check.
                 port: 8080
               initialDelaySeconds: 15
               failureThreshold: 2
