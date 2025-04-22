@@ -24,7 +24,7 @@ spec:
     spec:
       containers:
         - name: devops-sample
-          image: devops-sample:0.0.3-SNAPSHOT
+          image: devops-sample:0.0.4-SNAPSHOT
           readinessProbe:
             httpGet:
               path: /actuator/health/readiness
