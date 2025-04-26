@@ -24,7 +24,7 @@ spec:
     spec:
       containers:
         - name: devops-sample
-          image: devops-sample:0.0.4-SNAPSHOT
+          image: devops-sample:0.0.5-SNAPSHOT
           readinessProbe:
             httpGet:
               path: /actuator/health/readiness
@@ -42,3 +42,10 @@ spec:
           env:
             - name: PORT
               value: "8080"
+          resources:
+            limits:
+              cpu: "1"
+              memory: "300Mi"
+            requests:
+              cpu: "100m"
+              memory: "100Mi"

@@ -10,7 +10,7 @@
     </parent>
     <groupId>org.devops.sample</groupId>
     <artifactId>devops-sample</artifactId>
-    <version>0.0.4-SNAPSHOT</version>
+    <version>0.0.5-SNAPSHOT</version>
     <name>devops-sample</name>
     <description>devops-sample</description>
     <url/>
